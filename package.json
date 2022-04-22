@@ -3,7 +3,7 @@
   "version": "3.0.2",
   "main": "src/index.js",
   "private": false,
-  "repository": "git@github.com:easybytes/semantic-release-plugin-decorators.git",
+  "repository": "https://github.com/easybytes/semantic-release-plugin-decorators.git",
   "scripts": {
     "format": "prettier --write --single-quote --trailing-comma es5",
     "format:all": "yarn format \"./**/*.js\"",
