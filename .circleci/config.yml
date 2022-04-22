@@ -1,0 +1,24 @@
+version: 2.1
+orbs:
+  node: circleci/node@5.0.0
+jobs:
+  test:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages # Install and automatically cache packages
+      - run: npm run test
+  release:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages # Install and automatically cache packages
+      - run: npx semantic-release
+
+workflows:
+  test_and_release:
+    jobs:
+      - test
+      - release:
+          requires:
+            - test

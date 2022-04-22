@@ -6,23 +6,26 @@
   "repository": "https://github.com/easybytes/semantic-release-plugin-decorators.git",
   "scripts": {
     "format": "prettier --write --single-quote --trailing-comma es5",
-    "format:all": "yarn format \"./**/*.js\"",
+    "format:all": "npm run format \"./**/*.js\"",
     "precommit": "lint-staged",
+    "prepare": "is-ci || husky install",
     "test": "jest"
   },
   "license": "MIT",
   "peerDependencies": {
     "semantic-release": ">=11"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
-    "husky": "^4.2.1",
+    "husky": "^7.0.4",
+    "is-ci": "^3.0.1",
     "jest": "^25.1.0",
     "lint-staged": "^10.0.4",
     "prettier": "^1.19.1",
-    "semantic-release": "^17.0.1",
-    "semantic-release-github-pr": "^6.0.0"
+    "semantic-release": "^19.0.2"
   },
-  "dependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -30,7 +33,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "yarn format"
+      "npm run format"
     ]
   }
 }
